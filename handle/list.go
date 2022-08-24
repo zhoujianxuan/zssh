@@ -25,8 +25,8 @@ func List(_ *cli.Context) error {
 		return err
 	}
 
-	for _, info := range data.List {
-		fmt.Println(fmt.Sprintf("%s %s", info.Name, info.Host))
+	for i, info := range data.List {
+		fmt.Println(fmt.Sprintf("%d %s %s", i, info.Name, info.Host))
 	}
 	return nil
 }

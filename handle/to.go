@@ -43,8 +43,11 @@ func To(c *cli.Context) error {
 
 	info := data.List[index]
 	cmd := fmt.Sprintf("ssh %s@%s", info.Name, info.Host)
-	fmt.Println(cmd)
 
+	err = clipboard.WriteAll(info.Pwd)
+	if err != nil {
+		return err
+	}
 	err = clipboard.WriteAll(cmd)
 	if err != nil {
 		return err
